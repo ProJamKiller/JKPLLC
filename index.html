@@ -1,91 +1,633 @@
-<!DOCTYPE html>
-<html>
-  <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
-	<title>JamKillerPro</title>
-	<style>
-		html {
-			height:100%;
-		}
-		body {
-			background-color:#000;
-			margin:0;
-			height:100%;
-		}
-	</style>
-	<!-- copy these lines to your document head: -->
-
-	<meta name="viewport" content="user-scalable=yes, width=800" />
-	<style> @font-face {
-    font-family: 'chicagoflfregular';
-    src: url('JKPLLC.hyperesources/chicagoflf.eot');
-    src: url('JKPLLC.hyperesources/chicagoflf.eot?#iefix') format('embedded-opentype'),
-         url('JKPLLC.hyperesources/chicagoflf.woff2') format('woff2'),
-         url('JKPLLC.hyperesources/chicagoflf.woff') format('woff'),
-         url('JKPLLC.hyperesources/chicagoflf.ttf') format('truetype'),
-         url('JKPLLC.hyperesources/chicagoflf.svg#chicagoflfregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-</style> 
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
-  <meta name="viewport" content="user-scalable=yes, width=800">
-  
-  <!-- Primary Meta Tags -->
-  <title>Jamkiller Productions LLC</title>
-  <meta name="description" content="Explore the latest in cryptocurrency and blockchain technology with Jamkiller Productions LLC, Proud Peas Protocol Props, Producer Protocol,">
-  <meta name="keywords" content="Jamkiller Productions LLC, crypto, cryptocurrency, blockchain, Bitcoin, Ethereum, crypto news, blockchain technology, Jamkiller joint">
-  <meta name="author" content="Jamkiller Productions LLC">
-  
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jam Killer Productions LLC">
-  <meta name="twitter:description" content="Jam Killer Productions - All Things Production - Kansas City">
-  <meta name="twitter:image" content="https://bafybeicq2zvdmh2e7qnvvel2ay2emejzzqnfvf7vdp6utag5qcooio646e.ipfs.dweb.link?filename=Jam%20Killer%20Social%20Share">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jam Killer Productions — A Limited Liability Company</title>
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="https://bafybeic6ig66wcmvdkerswlh6ypgyvc3dal7pmlzdvfquk2hwrvxyltxbi.ipfs.dweb.link?filename=Jam%20Killer%20Productions%20Flavorcon">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://bafybeic6ig66wcmvdkerswlh6ypgyvc3dal7pmlzdvfquk2hwrvxyltxbi.ipfs.dweb.link?filename=Jam%20Killer%20Productions%20Flavorcon">
-  <link rel="icon" type="image/png" sizes="48x48" href="https://bafybeic6ig66wcmvdkerswlh6ypgyvc3dal7pmlzdvfquk2hwrvxyltxbi.ipfs.dweb.link?filename=Jam%20Killer%20Productions%20Flavorcon">
-  <link rel="icon" type="image/png" sizes="96x96" href="https://bafybeic6ig66wcmvdkerswlh6ypgyvc3dal7pmlzdvfquk2hwrvxyltxbi.ipfs.dweb.link?filename=Jam%20Killer%20Productions%20Flavorcon">
-  <link rel="shortcut icon" type="image/png" href="https://bafybeic6ig66wcmvdkerswlh6ypgyvc3dal7pmlzdvfquk2hwrvxyltxbi.ipfs.dweb.link?filename=Jam%20Killer%20Productions%20Flavorcon">
-  
-  <!-- Load jQuery over HTTPS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <meta name="description" content="Jam Killer Productions — A Limited Liability Company. Music + production by Fletcher Christian." />
+  <meta property="og:title" content="Jam Killer Productions" />
+  <meta property="og:description" content="A Limited Liability Company" />
+  <meta property="og:image" content="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
 
-	<!-- end copy -->
-  </head>
-  <body>
-	<!-- copy these lines to your document: -->
+  <link rel="preconnect" href="https://cdn.simpleicons.org" />
 
-	<div id="jkpllc_hype_container" class="HYPE_document" style="margin:auto;position:relative;width:100%;height:3800px;overflow:hidden;">
-		<script type="text/javascript" charset="utf-8" src="JKPLLC.hyperesources/jkpllc_hype_generated_script.js?54814"></script>
-	</div>
+  <style>
+    :root{
+      /* Core */
+      --bg0:#050510;
+      --bg1:#09091a;
+      --text: rgba(255,255,255,.93);
+      --muted: rgba(255,255,255,.70);
+      --line: rgba(255,255,255,.14);
 
-	<!-- end copy -->
-	
+      /* Color system (adjust anytime) */
+      --c1: 275 100% 65%; /* violet */
+      --c2: 195 100% 58%; /* cyan */
+      --c3: 35 100% 62%;  /* amber */
+      --c4: 140 90% 55%;  /* green */
 
+      --radius: 20px;
+      --shadow: 0 26px 90px rgba(0,0,0,.55);
+      --max: 1160px;
+    }
 
-	<!-- text content for search engines: -->
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 15% 0%, rgba(255,255,255,.08), transparent 60%),
+                  radial-gradient(900px 520px at 92% 12%, rgba(255,255,255,.06), transparent 55%),
+                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      overflow-x:hidden;
+    }
 
-	<div style="display:none" aria-hidden=true>
+    a{ color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible{
+      outline: 2px solid rgba(255,255,255,.85);
+      outline-offset: 4px;
+      border-radius: 14px;
+    }
 
-		<div></div>
-		<div></div>
-		<div>Producer Protocol Revelution</div>
-		<div>Start a</div>
-		<div>Start A Revolution</div>
-		<div>Evolution</div>
-		<div>revolution</div>
-		<div>Revelution!</div>
-		<div>A Limited Liabilty Company</div>
+    /* Ambient animated aurora */
+    .aurora{
+      position: fixed;
+      inset: -30vmax;
+      z-index: 0;
+      pointer-events:none;
+      filter: blur(50px);
+      opacity: .70;
+      background:
+        radial-gradient(closest-side, hsl(var(--c1) / .30), transparent 65%),
+        radial-gradient(closest-side, hsl(var(--c2) / .28), transparent 68%),
+        radial-gradient(closest-side, hsl(var(--c3) / .20), transparent 70%),
+        radial-gradient(closest-side, hsl(var(--c4) / .16), transparent 72%);
+      transform: translate3d(0,0,0);
+      animation: drift 12s ease-in-out infinite alternate;
+    }
+    @keyframes drift{
+      0%   { transform: translate(-3%, -2%) scale(1.02); }
+      50%  { transform: translate(2%, 3%) scale(1.04); }
+      100% { transform: translate(4%, -1%) scale(1.06); }
+    }
 
-	</div>
+    .wrap{ position:relative; z-index:1; max-width: var(--max); margin:0 auto; padding: 22px; }
 
-	<!-- end text content: -->
+    /* Sticky header */
+    .topbar{
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(8,8,18,.88), rgba(8,8,18,.56));
+      border-bottom: 1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
+    }
 
-  </body>
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 250px;
+    }
+    .brand img{
+      width: 44px; height: 44px; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 40px rgba(0,0,0,.45);
+      object-fit: cover;
+      transform: translateZ(0);
+    }
+    .brand .t1{
+      font-weight: 900;
+      letter-spacing: .2px;
+      line-height: 1.05;
+    }
+    .brand .t2{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .navlinks{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    /* Buttons / chips */
+    .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      user-select:none;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.085);
+      border-color: rgba(255,255,255,.24);
+      box-shadow: 0 18px 48px rgba(0,0,0,.35);
+    }
+    .chip svg, .chip img.icon{ width:18px; height:18px; display:block; }
+    .chip span{ font-size: 13px; letter-spacing:.2px; }
+
+    .cta{
+      background: linear-gradient(90deg, hsl(var(--c1) / .22), hsl(var(--c2) / .22));
+      border-color: rgba(255,255,255,.22);
+    }
+    .cta:hover{
+      background: linear-gradient(90deg, hsl(var(--c1) / .28), hsl(var(--c2) / .28));
+    }
+
+    /* Hero layout */
+    .hero{
+      padding: 58px 0 22px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    @media (max-width: 960px){
+      .grid{ grid-template-columns: 1fr; }
+      .brand{ min-width:auto; }
+      .navlinks{ justify-content:flex-start; }
+    }
+
+    .card{
+      position:relative;
+      overflow:hidden;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.14);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
+      box-shadow: var(--shadow);
+      padding: 24px;
+      transform: translateZ(0);
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 360px at 20% 10%, hsl(var(--c1) / .18), transparent 60%),
+        radial-gradient(820px 320px at 85% 20%, hsl(var(--c2) / .14), transparent 56%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .card > *{ position:relative; }
+
+    /* subtle moving shine line */
+    .shine{
+      position:absolute;
+      inset: -40% -70%;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.22) 45%, transparent 55%);
+      transform: rotate(12deg);
+      animation: shine 8s ease-in-out infinite;
+      opacity:.35;
+      pointer-events:none;
+    }
+    @keyframes shine{
+      0%   { transform: translateX(-18%) rotate(12deg); }
+      50%  { transform: translateX(26%) rotate(12deg); }
+      100% { transform: translateX(-18%) rotate(12deg); }
+    }
+
+    /* Headline */
+    h1{
+      margin: 0;
+      font-weight: 950;
+      letter-spacing: -0.9px;
+      font-size: clamp(36px, 4.4vw, 56px);
+      line-height: 1.02;
+    }
+    .subtitle{
+      margin-top: 10px;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+    }
+    .lead{
+      margin-top: 16px;
+      color: rgba(255,255,255,.80);
+      line-height: 1.6;
+      max-width: 70ch;
+      font-size: 15.5px;
+    }
+
+    /* Animated gradient “signature” text */
+    .sig{
+      display:inline-block;
+      background: linear-gradient(90deg,
+        hsl(var(--c2) / 1),
+        hsl(var(--c1) / 1),
+        hsl(var(--c3) / 1),
+        hsl(var(--c2) / 1)
+      );
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip:text;
+      color: transparent;
+      animation: flow 6s ease-in-out infinite;
+    }
+    @keyframes flow{
+      0%{ background-position: 0% 50%; }
+      50%{ background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
+    }
+
+    /* Badges */
+    .badges{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 16px;
+    }
+    .pill{
+      display:inline-flex;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.78);
+      font-size: 12.5px;
+      letter-spacing: .2px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
+
+    /* Logo panel */
+    .logoBox{
+      display:flex; align-items:center; justify-content:center;
+      min-height: 320px;
+      padding: 18px;
+    }
+    .logoFrame{
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.20);
+      box-shadow: 0 28px 90px rgba(0,0,0,.60);
+      overflow:hidden;
+      position:relative;
+      transform: translateZ(0);
+      animation: floaty 6s ease-in-out infinite;
+    }
+    @keyframes floaty{
+      0%{ transform: translateY(0px); }
+      50%{ transform: translateY(-6px); }
+      100%{ transform: translateY(0px); }
+    }
+    .logoFrame::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(400px 260px at 30% 10%, hsl(var(--c2) / .18), transparent 60%);
+      pointer-events:none;
+      opacity:.8;
+    }
+    .logoFrame img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height: 420px;
+      object-fit: contain;
+      padding: 18px;
+      position:relative;
+      z-index:1;
+    }
+
+    /* Sections */
+    section{ padding: 18px 0 8px; }
+    .sectionTitle{
+      margin: 0 0 10px;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.74);
+    }
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 960px){ .split{ grid-template-columns:1fr; } }
+
+    /* Big links */
+    .list{ display:flex; flex-direction:column; gap:10px; }
+    .bigLink{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      padding: 14px 14px;
+      border-radius: 18px;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.14);
+      transition: transform .16s ease, background .16s ease, border-color .16s ease, box-shadow .16s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .bigLink::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: linear-gradient(90deg,
+        transparent,
+        hsl(var(--c2) / .12),
+        transparent
+      );
+      opacity:0;
+      transition: opacity .18s ease;
+      pointer-events:none;
+    }
+    .bigLink:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.24);
+      box-shadow: 0 18px 60px rgba(0,0,0,.40);
+    }
+    .bigLink:hover::before{ opacity:1; }
+
+    .bigLink .left{ display:flex; align-items:center; gap:12px; }
+    .bigLink img.icon{ width:22px; height:22px; display:block; }
+    .bigLink .name{ font-weight: 850; letter-spacing:.2px; }
+    .bigLink .hint{ font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .arrow{ opacity:.75; font-size: 18px; }
+
+    /* About copy */
+    .copy{
+      color: rgba(255,255,255,.84);
+      line-height: 1.75;
+      font-size: 15.5px;
+      max-width: 90ch;
+      margin: 0;
+    }
+
+    /* Contact */
+    .emailRow{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 28px;
+      padding: 22px 0 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footerRow{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      align-items:flex-start;
+    }
+    .small{
+      font-size: 12px;
+      color: rgba(255,255,255,.60);
+      line-height: 1.6;
+      max-width: 78ch;
+    }
+
+    /* Entrance animations */
+    .reveal{
+      opacity:0;
+      transform: translateY(10px);
+      animation: up .7s ease forwards;
+    }
+    .reveal.d2{ animation-delay: .10s; }
+    .reveal.d3{ animation-delay: .18s; }
+    .reveal.d4{ animation-delay: .26s; }
+
+    @keyframes up{
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .aurora, .shine, .logoFrame, .sig, .reveal{ animation: none !important; }
+      .reveal{ opacity:1; transform:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="aurora" aria-hidden="true"></div>
+
+  <!-- Sticky Top Bar -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Jam Killer Productions home">
+          <img
+            src="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG"
+            alt="Jam Killer Productions logo"
+            loading="eager"
+            decoding="async"
+          />
+          <div>
+            <div class="t1">Jam Killer Productions</div>
+            <div class="t2">A Limited Liability Company</div>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary">
+          <a class="chip" href="#listen"><span>Listen</span></a>
+          <a class="chip" href="#about"><span>About</span></a>
+          <a class="chip" href="#contact"><span>Contact</span></a>
+          <a class="chip cta" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+            <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
+            <span>@projamkiller</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="grid">
+        <div class="card reveal">
+          <div class="shine" aria-hidden="true"></div>
+
+          <h1>
+            <span class="sig">Jam Killer</span> Productions
+          </h1>
+          <div class="subtitle">A Limited Liability Company</div>
+
+          <p class="lead reveal d2">
+            Music + production by <strong>Fletcher Christian</strong>.
+            A one-page headquarters that looks like it belongs on a festival LED wall.
+          </p>
+
+          <div class="badges reveal d3">
+            <span class="pill">Producer</span>
+            <span class="pill">Artist</span>
+            <span class="pill">Studio + Live</span>
+            <span class="pill">Kansas City</span>
+          </div>
+
+          <div style="height:14px"></div>
+
+          <div class="badges reveal d4" style="gap:10px;">
+            <a class="chip" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+              <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+              <span>Apple Music</span>
+            </a>
+
+            <a class="chip" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+              <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+              <span>Spotify</span>
+            </a>
+
+            <a class="chip" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
+              <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
+              <span>SoundCloud</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card logoBox reveal d2" aria-label="Animated logo">
+          <div class="shine" aria-hidden="true"></div>
+          <div class="logoFrame">
+            <img
+              src="https://bafybeidadwoh6ijm55dj4jdyzddo3im2mm7gz4udw2nykbe7lorp2sulze.ipfs.dweb.link?filename=CC5F2BB0-3F20-4024-827F-521F467849D7.gif"
+              alt="Jam Killer Productions animated logo"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTEN -->
+    <section id="listen">
+      <div class="sectionTitle">Listen</div>
+      <div class="split">
+        <div class="card reveal d2">
+          <div class="shine" aria-hidden="true"></div>
+          <div class="list">
+            <a class="bigLink" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+                <div>
+                  <div class="name">Apple Music</div>
+                  <div class="hint">Official artist page</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+
+            <a class="bigLink" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+                <div>
+                  <div class="name">Spotify</div>
+                  <div class="hint">Follow + stream</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+
+            <a class="bigLink" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
+                <div>
+                  <div class="name">SoundCloud</div>
+                  <div class="hint">Demos, drops, and raw cuts</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="card reveal d3">
+          <div class="shine" aria-hidden="true"></div>
+          <div class="sectionTitle" style="margin-top:0;">Social</div>
+          <div class="list">
+            <a class="bigLink" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
+                <div>
+                  <div class="name">X</div>
+                  <div class="hint">@projamkiller</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+
+            <p class="small" style="margin:8px 0 0;">
+             
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sectionTitle">About</div>
+      <div class="card reveal d2">
+        <div class="shine" aria-hidden="true"></div>
+        <p class="copy">
+          Jam Killer Productions is the home base for <strong>Fletcher Christian</strong>—music, production, live media,
+          and the kind of creative work that doesn’t need permission slips.
+         
+        </p>
+
+        <div class="badges" style="margin-top:16px;">
+          <span class="pill">Recording</span>
+          <span class="pill">Production</span>
+          <span class="pill">Creative Direction</span>
+          <span class="pill">Live Performance</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sectionTitle">Contact</div>
+      <div class="card reveal d3">
+        <div class="shine" aria-hidden="true"></div>
+
+        <p class="copy" style="margin:0;">
+          Bookings, production, or collabs — hit the line:
+        </p>
+
+        <!-- Replace this email with your real one -->
+        <div class="emailRow">
+          <a class="chip cta" href="mailto:booking@jamkillerproductions.io">
+            <span>booking@jamkillerproductions.io</span>
+          </a>
+          <a class="chip" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+            <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
+            <span>DM on X</span>
+          </a>
+        </div>
+
+        <p class="small" style="margin-top:14px;">
+        
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footerRow">
+        <div>
+          <div style="font-weight:900; color:rgba(255,255,255,.86); letter-spacing:.2px;">Jam Killer Productions</div>
+          <div class="small">A Limited Liability Company</div>
+        </div>
+        <div class="small">
+          © <span id="y"></span> Jam Killer Productions. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
