@@ -10,22 +10,24 @@
   <meta property="og:description" content="A Limited Liability Company" />
   <meta property="og:image" content="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
 
+  <!-- Favicon (your logo link) -->
+  <link rel="icon" href="https://bafybeib6nnxiuc72lbwjes6uroda5lf2qfe35pqyetso2pylpr5fglw7hi.ipfs.dweb.link?filename=dragonbackgroundanimated.MP4" />
+  <!-- If your favicon is an image, use that instead. See note below. -->
+
   <link rel="preconnect" href="https://cdn.simpleicons.org" />
 
   <style>
     :root{
-      /* Core */
       --bg0:#050510;
       --bg1:#09091a;
       --text: rgba(255,255,255,.93);
       --muted: rgba(255,255,255,.70);
       --line: rgba(255,255,255,.14);
 
-      /* Color system (adjust anytime) */
-      --c1: 275 100% 65%; /* violet */
-      --c2: 195 100% 58%; /* cyan */
-      --c3: 35 100% 62%;  /* amber */
-      --c4: 140 90% 55%;  /* green */
+      --c1: 275 100% 65%;
+      --c2: 195 100% 58%;
+      --c3: 35 100% 62%;
+      --c4: 140 90% 55%;
 
       --radius: 20px;
       --shadow: 0 26px 90px rgba(0,0,0,.55);
@@ -37,9 +39,10 @@
     body{
       margin:0;
       color:var(--text);
-      background: radial-gradient(1200px 600px at 15% 0%, rgba(255,255,255,.08), transparent 60%),
-                  radial-gradient(900px 520px at 92% 12%, rgba(255,255,255,.06), transparent 55%),
-                  linear-gradient(180deg, var(--bg0), var(--bg1));
+      background:
+        radial-gradient(1200px 600px at 15% 0%, rgba(255,255,255,.08), transparent 60%),
+        radial-gradient(900px 520px at 92% 12%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       overflow-x:hidden;
     }
@@ -51,14 +54,43 @@
       border-radius: 14px;
     }
 
-    /* Ambient animated aurora */
+    /* --- NEW: Dragon video background layer --- */
+    .video-bg{
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;                 /* starts hidden */
+      transform: scale(1.03);     /* subtle zoom */
+      transition: opacity 1200ms ease, transform 1400ms ease;
+    }
+    .video-bg.is-on{
+      opacity: .22;               /* tuned for “premium + readable” */
+      transform: scale(1);
+    }
+    .video-bg video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05) blur(2px);
+    }
+    /* Dark overlay to keep text readable */
+    .video-vignette{
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(900px 600px at 30% 20%, rgba(0,0,0,.25), rgba(0,0,0,.62)),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.75));
+    }
+
+    /* Ambient aurora (kept) */
     .aurora{
       position: fixed;
       inset: -30vmax;
-      z-index: 0;
+      z-index: 1; /* above video, behind content */
       pointer-events:none;
       filter: blur(50px);
-      opacity: .70;
+      opacity: .62;
       background:
         radial-gradient(closest-side, hsl(var(--c1) / .30), transparent 65%),
         radial-gradient(closest-side, hsl(var(--c2) / .28), transparent 68%),
@@ -73,9 +105,8 @@
       100% { transform: translate(4%, -1%) scale(1.06); }
     }
 
-    .wrap{ position:relative; z-index:1; max-width: var(--max); margin:0 auto; padding: 22px; }
+    .wrap{ position:relative; z-index: 2; max-width: var(--max); margin:0 auto; padding: 22px; }
 
-    /* Sticky header */
     .topbar{
       position: sticky; top:0; z-index:10;
       backdrop-filter: blur(16px);
@@ -97,7 +128,6 @@
       border: 1px solid rgba(255,255,255,.18);
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
       object-fit: cover;
-      transform: translateZ(0);
     }
     .brand .t1{
       font-weight: 900;
@@ -117,7 +147,6 @@
       justify-content:flex-end;
     }
 
-    /* Buttons / chips */
     .chip{
       display:inline-flex; align-items:center; gap:10px;
       padding: 10px 13px;
@@ -133,21 +162,15 @@
       border-color: rgba(255,255,255,.24);
       box-shadow: 0 18px 48px rgba(0,0,0,.35);
     }
-    .chip svg, .chip img.icon{ width:18px; height:18px; display:block; }
+    .chip img.icon{ width:18px; height:18px; display:block; }
     .chip span{ font-size: 13px; letter-spacing:.2px; }
 
     .cta{
       background: linear-gradient(90deg, hsl(var(--c1) / .22), hsl(var(--c2) / .22));
       border-color: rgba(255,255,255,.22);
     }
-    .cta:hover{
-      background: linear-gradient(90deg, hsl(var(--c1) / .28), hsl(var(--c2) / .28));
-    }
 
-    /* Hero layout */
-    .hero{
-      padding: 58px 0 22px;
-    }
+    .hero{ padding: 58px 0 22px; }
     .grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -168,7 +191,6 @@
       background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
       box-shadow: var(--shadow);
       padding: 24px;
-      transform: translateZ(0);
     }
     .card::before{
       content:"";
@@ -181,7 +203,6 @@
     }
     .card > *{ position:relative; }
 
-    /* subtle moving shine line */
     .shine{
       position:absolute;
       inset: -40% -70%;
@@ -197,7 +218,6 @@
       100% { transform: translateX(-18%) rotate(12deg); }
     }
 
-    /* Headline */
     h1{
       margin: 0;
       font-weight: 950;
@@ -220,7 +240,6 @@
       font-size: 15.5px;
     }
 
-    /* Animated gradient “signature” text */
     .sig{
       display:inline-block;
       background: linear-gradient(90deg,
@@ -241,7 +260,6 @@
       100%{ background-position: 0% 50%; }
     }
 
-    /* Badges */
     .badges{
       display:flex; flex-wrap:wrap; gap:10px;
       margin-top: 16px;
@@ -259,7 +277,6 @@
     }
     .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
 
-    /* Logo panel */
     .logoBox{
       display:flex; align-items:center; justify-content:center;
       min-height: 320px;
@@ -273,7 +290,6 @@
       box-shadow: 0 28px 90px rgba(0,0,0,.60);
       overflow:hidden;
       position:relative;
-      transform: translateZ(0);
       animation: floaty 6s ease-in-out infinite;
     }
     @keyframes floaty{
@@ -299,7 +315,6 @@
       z-index:1;
     }
 
-    /* Sections */
     section{ padding: 18px 0 8px; }
     .sectionTitle{
       margin: 0 0 10px;
@@ -315,7 +330,6 @@
     }
     @media (max-width: 960px){ .split{ grid-template-columns:1fr; } }
 
-    /* Big links */
     .list{ display:flex; flex-direction:column; gap:10px; }
     .bigLink{
       display:flex; align-items:center; justify-content:space-between;
@@ -328,25 +342,12 @@
       position:relative;
       overflow:hidden;
     }
-    .bigLink::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background: linear-gradient(90deg,
-        transparent,
-        hsl(var(--c2) / .12),
-        transparent
-      );
-      opacity:0;
-      transition: opacity .18s ease;
-      pointer-events:none;
-    }
     .bigLink:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.07);
       border-color: rgba(255,255,255,.24);
       box-shadow: 0 18px 60px rgba(0,0,0,.40);
     }
-    .bigLink:hover::before{ opacity:1; }
 
     .bigLink .left{ display:flex; align-items:center; gap:12px; }
     .bigLink img.icon{ width:22px; height:22px; display:block; }
@@ -354,7 +355,6 @@
     .bigLink .hint{ font-size: 13px; color: var(--muted); margin-top: 2px; }
     .arrow{ opacity:.75; font-size: 18px; }
 
-    /* About copy */
     .copy{
       color: rgba(255,255,255,.84);
       line-height: 1.75;
@@ -363,13 +363,11 @@
       margin: 0;
     }
 
-    /* Contact */
     .emailRow{
       display:flex; gap:10px; flex-wrap:wrap; align-items:center;
       margin-top: 12px;
     }
 
-    /* Footer */
     footer{
       margin-top: 28px;
       padding: 22px 0 40px;
@@ -388,7 +386,6 @@
       max-width: 78ch;
     }
 
-    /* Entrance animations */
     .reveal{
       opacity:0;
       transform: translateY(10px);
@@ -397,23 +394,35 @@
     .reveal.d2{ animation-delay: .10s; }
     .reveal.d3{ animation-delay: .18s; }
     .reveal.d4{ animation-delay: .26s; }
+    @keyframes up{ to{ opacity:1; transform: translateY(0); } }
 
-    @keyframes up{
-      to{ opacity:1; transform: translateY(0); }
-    }
-
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       .aurora, .shine, .logoFrame, .sig, .reveal{ animation: none !important; }
       .reveal{ opacity:1; transform:none; }
+      .video-bg{ transition:none; }
+      .video-bg.is-on{ opacity:.18; }
     }
   </style>
 </head>
 
 <body>
+  <!-- NEW: delayed “pop-in” animated background -->
+  <div class="video-bg" id="videoBg" aria-hidden="true">
+    <video
+      id="dragonVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+    >
+      <source src="https://bafybeib6nnxiuc72lbwjes6uroda5lf2qfe35pqyetso2pylpr5fglw7hi.ipfs.dweb.link?filename=dragonbackgroundanimated.MP4" type="video/mp4" />
+    </video>
+    <div class="video-vignette"></div>
+  </div>
+
   <div class="aurora" aria-hidden="true"></div>
 
-  <!-- Sticky Top Bar -->
   <header class="topbar">
     <div class="wrap">
       <div class="nav">
@@ -444,20 +453,17 @@
   </header>
 
   <main id="top" class="wrap">
-    <!-- HERO -->
     <div class="hero">
       <div class="grid">
         <div class="card reveal">
           <div class="shine" aria-hidden="true"></div>
 
-          <h1>
-            <span class="sig">Jam Killer</span> Productions
-          </h1>
+          <h1><span class="sig">Jam Killer</span> Productions</h1>
           <div class="subtitle">A Limited Liability Company</div>
 
           <p class="lead reveal d2">
             Music + production by <strong>Fletcher Christian</strong>.
-            
+            Clean luxury, with teeth.
           </p>
 
           <div class="badges reveal d3">
@@ -501,7 +507,6 @@
       </div>
     </div>
 
-    <!-- LISTEN -->
     <section id="listen">
       <div class="sectionTitle">Listen</div>
       <div class="split">
@@ -559,45 +564,32 @@
             </a>
 
             <p class="small" style="margin:8px 0 0;">
-             
+              If you give me your YouTube + Instagram + Facebook links, I’ll add them here with matching icons.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="sectionTitle">About</div>
       <div class="card reveal d2">
         <div class="shine" aria-hidden="true"></div>
         <p class="copy">
           Jam Killer Productions is the home base for <strong>Fletcher Christian</strong>—music, production, live media,
-          and the kind of creative work that doesn’t need permission slips.
-         
+          and creative direction. Built to look expensive, load fast, and point people straight to the work.
         </p>
-
-        <div class="badges" style="margin-top:16px;">
-          <span class="pill">Recording</span>
-          <span class="pill">Production</span>
-          <span class="pill">Creative Direction</span>
-          <span class="pill">Live Performance</span>
-        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="sectionTitle">Contact</div>
       <div class="card reveal d3">
         <div class="shine" aria-hidden="true"></div>
+        <p class="copy" style="margin:0;">Bookings, production, or collabs:</p>
 
-        <p class="copy" style="margin:0;">
-          Bookings, production, or collabs — hit the line:
-        </p>
-
-        <!-- Replace this email with your real one -->
         <div class="emailRow">
+          <!-- Replace if you want -->
           <a class="chip cta" href="mailto:booking@jamkillerproductions.io">
             <span>booking@jamkillerproductions.io</span>
           </a>
@@ -608,7 +600,7 @@
         </div>
 
         <p class="small" style="margin-top:14px;">
-        
+          If you want the dragon to pop in later/sooner, change the delay in the script below.
         </p>
       </div>
     </section>
@@ -619,15 +611,31 @@
           <div style="font-weight:900; color:rgba(255,255,255,.86); letter-spacing:.2px;">Jam Killer Productions</div>
           <div class="small">A Limited Liability Company</div>
         </div>
-        <div class="small">
-          © <span id="y"></span> Jam Killer Productions. All rights reserved.
-        </div>
+        <div class="small">© <span id="y"></span> Jam Killer Productions. All rights reserved.</div>
       </div>
     </footer>
   </main>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Dragon background “pop-in”
+    // Change delay (ms). Example: 2500 = 2.5 seconds
+    const POP_IN_DELAY_MS = 2200;
+
+    const bg = document.getElementById("videoBg");
+    const vid = document.getElementById("dragonVideo");
+
+    // ensure it stays muted (autoplay requirements)
+    vid.muted = true;
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        bg.classList.add("is-on");
+        // try play in case browser paused it
+        vid.play().catch(() => {});
+      }, POP_IN_DELAY_MS);
+    });
   </script>
 </body>
 </html>
