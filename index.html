@@ -2,17 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Jam Killer Productions — A Limited Liability Company</title>
 
   <meta name="description" content="Jam Killer Productions — A Limited Liability Company. Music + production by Fletcher Christian." />
+
+  <!-- Social share -->
+  <meta property="og:type" content="website" />
   <meta property="og:title" content="Jam Killer Productions" />
   <meta property="og:description" content="A Limited Liability Company" />
-  <meta property="og:image" content="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
+  <meta property="og:image" content="https://bafybeifomauig6ybwnudusghqb6etiy6ryguuktd4bbrqgb4uzuubrypjq.ipfs.dweb.link?filename=swansocial.png" />
+  <meta property="og:image:alt" content="Jam Killer Productions social share card" />
 
-  <!-- Favicon (your logo link) -->
-  <link rel="icon" href="https://bafybeib6nnxiuc72lbwjes6uroda5lf2qfe35pqyetso2pylpr5fglw7hi.ipfs.dweb.link?filename=dragonbackgroundanimated.MP4" />
-  <!-- If your favicon is an image, use that instead. See note below. -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jam Killer Productions" />
+  <meta name="twitter:description" content="A Limited Liability Company" />
+  <meta name="twitter:image" content="https://bafybeifomauig6ybwnudusghqb6etiy6ryguuktd4bbrqgb4uzuubrypjq.ipfs.dweb.link?filename=swansocial.png" />
+
+  <meta name="theme-color" content="#070712" />
+
+  <!-- Favicon + icons (same as logo, per your request) -->
+  <link rel="icon" type="image/jpeg" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
+  <link rel="apple-touch-icon" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
 
   <link rel="preconnect" href="https://cdn.simpleicons.org" />
 
@@ -20,6 +31,7 @@
     :root{
       --bg0:#050510;
       --bg1:#09091a;
+
       --text: rgba(255,255,255,.93);
       --muted: rgba(255,255,255,.70);
       --line: rgba(255,255,255,.14);
@@ -48,24 +60,24 @@
     }
 
     a{ color:inherit; text-decoration:none; }
-    a:focus-visible, button:focus-visible{
+    a:focus-visible{
       outline: 2px solid rgba(255,255,255,.85);
       outline-offset: 4px;
       border-radius: 14px;
     }
 
-    /* --- NEW: Dragon video background layer --- */
+    /* Background video layer (delayed pop-in) */
     .video-bg{
       position: fixed;
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0;                 /* starts hidden */
-      transform: scale(1.03);     /* subtle zoom */
+      opacity: 0;
+      transform: scale(1.03);
       transition: opacity 1200ms ease, transform 1400ms ease;
     }
     .video-bg.is-on{
-      opacity: .22;               /* tuned for “premium + readable” */
+      opacity: .22;
       transform: scale(1);
     }
     .video-bg video{
@@ -74,7 +86,6 @@
       object-fit: cover;
       filter: saturate(1.05) contrast(1.05) blur(2px);
     }
-    /* Dark overlay to keep text readable */
     .video-vignette{
       position:absolute;
       inset:0;
@@ -83,14 +94,14 @@
         linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.75));
     }
 
-    /* Ambient aurora (kept) */
+    /* Aurora layer */
     .aurora{
       position: fixed;
       inset: -30vmax;
-      z-index: 1; /* above video, behind content */
+      z-index: 1;
       pointer-events:none;
       filter: blur(50px);
-      opacity: .62;
+      opacity: .60;
       background:
         radial-gradient(closest-side, hsl(var(--c1) / .30), transparent 65%),
         radial-gradient(closest-side, hsl(var(--c2) / .28), transparent 68%),
@@ -105,26 +116,41 @@
       100% { transform: translate(4%, -1%) scale(1.06); }
     }
 
-    .wrap{ position:relative; z-index: 2; max-width: var(--max); margin:0 auto; padding: 22px; }
+    .wrap{
+      position:relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 22px;
+    }
 
+    /* Sticky header */
     .topbar{
-      position: sticky; top:0; z-index:10;
+      position: sticky;
+      top:0;
+      z-index:10;
       backdrop-filter: blur(16px);
-      background: linear-gradient(180deg, rgba(8,8,18,.88), rgba(8,8,18,.56));
+      background: linear-gradient(180deg, rgba(8,8,18,.90), rgba(8,8,18,.55));
       border-bottom: 1px solid var(--line);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:14px;
       padding: 14px 0;
     }
 
     .brand{
-      display:flex; align-items:center; gap:12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
       min-width: 250px;
     }
     .brand img{
-      width: 44px; height: 44px; border-radius: 14px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       border: 1px solid rgba(255,255,255,.18);
       box-shadow: 0 14px 40px rgba(0,0,0,.45);
       object-fit: cover;
@@ -143,18 +169,25 @@
     }
 
     .navlinks{
-      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
       justify-content:flex-end;
     }
 
+    /* Chips */
     .chip{
-      display:inline-flex; align-items:center; gap:10px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       padding: 10px 13px;
       border-radius: 999px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.14);
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       user-select:none;
+      white-space: nowrap;
     }
     .chip:hover{
       transform: translateY(-1px);
@@ -162,14 +195,25 @@
       border-color: rgba(255,255,255,.24);
       box-shadow: 0 18px 48px rgba(0,0,0,.35);
     }
-    .chip img.icon{ width:18px; height:18px; display:block; }
-    .chip span{ font-size: 13px; letter-spacing:.2px; }
+    .chip img.icon{
+      width:18px;
+      height:18px;
+      display:block;
+    }
+    .chip span{
+      font-size: 13px;
+      letter-spacing:.2px;
+    }
 
     .cta{
       background: linear-gradient(90deg, hsl(var(--c1) / .22), hsl(var(--c2) / .22));
       border-color: rgba(255,255,255,.22);
     }
+    .cta:hover{
+      background: linear-gradient(90deg, hsl(var(--c1) / .28), hsl(var(--c2) / .28));
+    }
 
+    /* Hero */
     .hero{ padding: 58px 0 22px; }
     .grid{
       display:grid;
@@ -194,7 +238,8 @@
     }
     .card::before{
       content:"";
-      position:absolute; inset:-2px;
+      position:absolute;
+      inset:-2px;
       background:
         radial-gradient(900px 360px at 20% 10%, hsl(var(--c1) / .18), transparent 60%),
         radial-gradient(820px 320px at 85% 20%, hsl(var(--c2) / .14), transparent 56%);
@@ -261,7 +306,9 @@
     }
 
     .badges{
-      display:flex; flex-wrap:wrap; gap:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
       margin-top: 16px;
     }
     .pill{
@@ -275,10 +322,15 @@
       letter-spacing: .2px;
       transition: transform .15s ease, background .15s ease;
     }
-    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.07); }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+    }
 
     .logoBox{
-      display:flex; align-items:center; justify-content:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       min-height: 320px;
       padding: 18px;
     }
@@ -299,7 +351,8 @@
     }
     .logoFrame::after{
       content:"";
-      position:absolute; inset:-2px;
+      position:absolute;
+      inset:-2px;
       background: radial-gradient(400px 260px at 30% 10%, hsl(var(--c2) / .18), transparent 60%);
       pointer-events:none;
       opacity:.8;
@@ -328,11 +381,15 @@
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-    @media (max-width: 960px){ .split{ grid-template-columns:1fr; } }
+    @media (max-width: 960px){
+      .split{ grid-template-columns:1fr; }
+    }
 
     .list{ display:flex; flex-direction:column; gap:10px; }
     .bigLink{
-      display:flex; align-items:center; justify-content:space-between;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
       gap:12px;
       padding: 14px 14px;
       border-radius: 18px;
@@ -349,11 +406,29 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.40);
     }
 
-    .bigLink .left{ display:flex; align-items:center; gap:12px; }
-    .bigLink img.icon{ width:22px; height:22px; display:block; }
-    .bigLink .name{ font-weight: 850; letter-spacing:.2px; }
-    .bigLink .hint{ font-size: 13px; color: var(--muted); margin-top: 2px; }
-    .arrow{ opacity:.75; font-size: 18px; }
+    .bigLink .left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .bigLink img.icon{
+      width:22px;
+      height:22px;
+      display:block;
+    }
+    .bigLink .name{
+      font-weight: 850;
+      letter-spacing:.2px;
+    }
+    .bigLink .hint{
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .arrow{
+      opacity:.75;
+      font-size: 18px;
+    }
 
     .copy{
       color: rgba(255,255,255,.84);
@@ -363,8 +438,11 @@
       margin: 0;
     }
 
-    .emailRow{
-      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
       margin-top: 12px;
     }
 
@@ -376,7 +454,10 @@
       font-size: 13px;
     }
     .footerRow{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
       align-items:flex-start;
     }
     .small{
@@ -406,16 +487,8 @@
 </head>
 
 <body>
-  <!-- NEW: delayed “pop-in” animated background -->
   <div class="video-bg" id="videoBg" aria-hidden="true">
-    <video
-      id="dragonVideo"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-    >
+    <video id="dragonVideo" autoplay muted loop playsinline preload="metadata">
       <source src="https://bafybeib6nnxiuc72lbwjes6uroda5lf2qfe35pqyetso2pylpr5fglw7hi.ipfs.dweb.link?filename=dragonbackgroundanimated.MP4" type="video/mp4" />
     </video>
     <div class="video-vignette"></div>
@@ -441,6 +514,7 @@
 
         <nav class="navlinks" aria-label="Primary">
           <a class="chip" href="#listen"><span>Listen</span></a>
+          <a class="chip" href="#social"><span>Social</span></a>
           <a class="chip" href="#about"><span>About</span></a>
           <a class="chip" href="#contact"><span>Contact</span></a>
           <a class="chip cta" href="https://x.com/projamkiller" target="_blank" rel="noopener">
@@ -463,7 +537,6 @@
 
           <p class="lead reveal d2">
             Music + production by <strong>Fletcher Christian</strong>.
-            Clean luxury, with teeth.
           </p>
 
           <div class="badges reveal d3">
@@ -509,48 +582,52 @@
 
     <section id="listen">
       <div class="sectionTitle">Listen</div>
-      <div class="split">
-        <div class="card reveal d2">
-          <div class="shine" aria-hidden="true"></div>
-          <div class="list">
-            <a class="bigLink" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
-              <div class="left">
-                <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
-                <div>
-                  <div class="name">Apple Music</div>
-                  <div class="hint">Official artist page</div>
-                </div>
-              </div>
-              <div class="arrow">↗</div>
-            </a>
+      <div class="card reveal d2">
+        <div class="shine" aria-hidden="true"></div>
 
-            <a class="bigLink" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
-              <div class="left">
-                <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
-                <div>
-                  <div class="name">Spotify</div>
-                  <div class="hint">Follow + stream</div>
-                </div>
+        <div class="list">
+          <a class="bigLink" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+              <div>
+                <div class="name">Apple Music</div>
+                <div class="hint">Official artist page</div>
               </div>
-              <div class="arrow">↗</div>
-            </a>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
 
-            <a class="bigLink" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
-              <div class="left">
-                <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
-                <div>
-                  <div class="name">SoundCloud</div>
-                  <div class="hint">Demos, drops, and raw cuts</div>
-                </div>
+          <a class="bigLink" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+              <div>
+                <div class="name">Spotify</div>
+                <div class="hint">Follow + stream</div>
               </div>
-              <div class="arrow">↗</div>
-            </a>
-          </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
+          <a class="bigLink" href="https://soundcloud.com/therealfletcherchristian" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="SoundCloud logo" src="https://cdn.simpleicons.org/soundcloud/ffffff" />
+              <div>
+                <div class="name">SoundCloud</div>
+                <div class="hint">Demos, drops, and raw cuts</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <div class="card reveal d3">
-          <div class="shine" aria-hidden="true"></div>
-          <div class="sectionTitle" style="margin-top:0;">Social</div>
+    <section id="social">
+      <div class="sectionTitle">Social</div>
+      <div class="card reveal d3">
+        <div class="shine" aria-hidden="true"></div>
+
+        <div class="split">
           <div class="list">
             <a class="bigLink" href="https://x.com/projamkiller" target="_blank" rel="noopener">
               <div class="left">
@@ -563,9 +640,40 @@
               <div class="arrow">↗</div>
             </a>
 
-            <p class="small" style="margin:8px 0 0;">
-             
-            </p>
+            <a class="bigLink" href="https://www.youtube.com/@Projamkiller" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="YouTube logo" src="https://cdn.simpleicons.org/youtube/ffffff" />
+                <div>
+                  <div class="name">YouTube</div>
+                  <div class="hint">@Projamkiller</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+          </div>
+
+          <div class="list">
+            <a class="bigLink" href="https://instagram.com/fletcherchristian1979" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="Instagram logo" src="https://cdn.simpleicons.org/instagram/ffffff" />
+                <div>
+                  <div class="name">Instagram</div>
+                  <div class="hint">@fletcherchristian1979</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
+
+            <a class="bigLink" href="https://www.youtube.com/@Projamkiller" target="_blank" rel="noopener">
+              <div class="left">
+                <img class="icon" alt="YouTube logo" src="https://cdn.simpleicons.org/youtube/ffffff" />
+                <div>
+                  <div class="name">Video</div>
+                  <div class="hint">Watch the latest</div>
+                </div>
+              </div>
+              <div class="arrow">↗</div>
+            </a>
           </div>
         </div>
       </div>
@@ -575,6 +683,7 @@
       <div class="sectionTitle">About</div>
       <div class="card reveal d2">
         <div class="shine" aria-hidden="true"></div>
+
         <p class="copy">
           Jam Killer Productions is the home base for <strong>Fletcher Christian</strong>—music, production, live media,
           and creative direction.
@@ -586,22 +695,21 @@
       <div class="sectionTitle">Contact</div>
       <div class="card reveal d3">
         <div class="shine" aria-hidden="true"></div>
-        <p class="copy" style="margin:0;">Bookings, production, or collabs:</p>
 
-        <div class="emailRow">
-          <!-- Replace if you want -->
-          <a class="chip cta" href="mailto:booking@jamkillerproductions.io">
-            <span>booking@jamkillerproductions.io</span>
-          </a>
-          <a class="chip" href="https://x.com/projamkiller" target="_blank" rel="noopener">
+        <div class="ctaRow">
+          <a class="chip cta" href="https://x.com/projamkiller" target="_blank" rel="noopener">
             <img class="icon" alt="X logo" src="https://cdn.simpleicons.org/x/ffffff" />
             <span>DM on X</span>
           </a>
+          <a class="chip" href="https://instagram.com/fletcherchristian1979" target="_blank" rel="noopener">
+            <img class="icon" alt="Instagram logo" src="https://cdn.simpleicons.org/instagram/ffffff" />
+            <span>DM on Instagram</span>
+          </a>
+          <a class="chip" href="https://www.youtube.com/@Projamkiller" target="_blank" rel="noopener">
+            <img class="icon" alt="YouTube logo" src="https://cdn.simpleicons.org/youtube/ffffff" />
+            <span>YouTube</span>
+          </a>
         </div>
-
-        <p class="small" style="margin-top:14px;">
-         
-        </p>
       </div>
     </section>
 
@@ -619,20 +727,16 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // Dragon background “pop-in”
-    // Change delay (ms). Example: 2500 = 2.5 seconds
     const POP_IN_DELAY_MS = 2200;
 
     const bg = document.getElementById("videoBg");
     const vid = document.getElementById("dragonVideo");
 
-    // ensure it stays muted (autoplay requirements)
     vid.muted = true;
 
     window.addEventListener("load", () => {
       setTimeout(() => {
         bg.classList.add("is-on");
-        // try play in case browser paused it
         vid.play().catch(() => {});
       }, POP_IN_DELAY_MS);
     });
