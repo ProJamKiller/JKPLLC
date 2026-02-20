@@ -483,6 +483,158 @@
       .video-bg{ transition:none; }
       .video-bg.is-on{ opacity:.18; }
     }
+
+    /* =========================
+       ADDED: Release popup modal
+       ========================= */
+    .promo{
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(800px 500px at 90% 20%, rgba(255,255,255,.06), transparent 55%),
+        rgba(0,0,0,.70);
+      backdrop-filter: blur(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 220ms ease;
+    }
+    .promo.is-on{
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .promoCard{
+      width: min(900px, 100%);
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.06));
+      box-shadow: 0 34px 120px rgba(0,0,0,.72);
+      overflow: hidden;
+      position: relative;
+      transform: translateY(10px) scale(.98);
+      transition: transform 260ms ease;
+    }
+    .promo.is-on .promoCard{
+      transform: translateY(0) scale(1);
+    }
+    .promoCard::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(900px 360px at 20% 10%, hsl(var(--c1) / .22), transparent 60%),
+        radial-gradient(820px 320px at 85% 20%, hsl(var(--c2) / .18), transparent 56%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .promoInner{
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 0;
+      align-items: stretch;
+    }
+    @media (max-width: 820px){
+      .promoInner{ grid-template-columns: 1fr; }
+    }
+    .promoMedia{
+      position: relative;
+      padding: 16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,.22);
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    @media (max-width: 820px){
+      .promoMedia{ border-right: none; border-bottom: 1px solid rgba(255,255,255,.12); }
+    }
+    .promoMediaFrame{
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      box-shadow: 0 24px 80px rgba(0,0,0,.55);
+      overflow: hidden;
+    }
+    .promoMediaFrame img{
+      width: 100%;
+      height: auto;
+      display:block;
+      object-fit: cover;
+    }
+    .promoBody{
+      padding: 22px 22px 18px;
+    }
+    .promoKicker{
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.76);
+      margin-bottom: 10px;
+    }
+    .promoTitle{
+      margin: 0;
+      font-weight: 950;
+      letter-spacing: -0.7px;
+      line-height: 1.05;
+      font-size: clamp(26px, 3vw, 36px);
+    }
+    .promoDate{
+      margin-top: 10px;
+      display:inline-block;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.84);
+      font-size: 12.5px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .promoLead{
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.65;
+      font-size: 15.5px;
+      max-width: 62ch;
+    }
+    .promoActions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 16px;
+    }
+    .promoClose{
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display:grid;
+      place-items:center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.28);
+      color: rgba(255,255,255,.92);
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .promoClose:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.26);
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+    .promoClose:focus-visible{
+      outline: 2px solid rgba(255,255,255,.85);
+      outline-offset: 4px;
+    }
   </style>
 </head>
 
@@ -495,6 +647,55 @@
   </div>
 
   <div class="aurora" aria-hidden="true"></div>
+
+  <!-- ADDED: Release popup -->
+  <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-hidden="true">
+    <div class="promoCard">
+      <button class="promoClose" id="promoClose" type="button" aria-label="Close">
+        ✕
+      </button>
+
+      <div class="promoInner">
+        <div class="promoMedia" aria-hidden="false">
+          <div class="promoMediaFrame">
+            <img
+              src="https://bafybeibe4lbckvszlqmswhszq7u5odfag5ohnot6w62p5nlyogakqi46je.ipfs.dweb.link?filename=Canyoufeelthis.gif"
+              alt="Can You Feel This — animated promo"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        </div>
+
+        <div class="promoBody">
+          <div class="promoKicker">New Release</div>
+          <h2 class="promoTitle" id="promoTitle"><span class="sig">Can You Feel This</span></h2>
+          <div class="promoDate">Drops March 6th 2026</div>
+
+          <p class="promoLead">
+            Follow So You Don’t Miss the Drop!
+          </p>
+
+          <div class="promoActions">
+            <a class="chip cta" href="https://open.spotify.com/artist/2FjdpboVDGnJs9wuGcJV8H" target="_blank" rel="noopener">
+              <img class="icon" alt="Spotify logo" src="https://cdn.simpleicons.org/spotify/ffffff" />
+              <span>Spotify</span>
+            </a>
+
+            <a class="chip" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
+              <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
+              <span>Apple Music</span>
+            </a>
+
+            <button class="chip" id="promoLater" type="button">
+              <span>Not now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /ADDED -->
 
   <header class="topbar">
     <div class="wrap">
@@ -734,6 +935,23 @@
             </div>
             <div class="arrow">↗</div>
           </a>
+
+          <!-- ADDED: JETTAI -->
+          <a class="bigLink" href="https://jettai.pro" target="_blank" rel="noopener">
+            <div class="left">
+              <img
+                class="icon"
+                alt="JETTAI logo"
+                src="https://bafybeibirgqc6hhv7taeulaiayvt2zmuqvfexnudrccptdqjhyjajybjru.ipfs.dweb.link?filename=IMG_4472%202.jpeg"
+              />
+              <div>
+                <div class="name">JETTAI</div>
+                <div class="hint">jettai.pro</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+          <!-- /ADDED -->
         </div>
       </div>
     </section>
@@ -766,6 +984,54 @@
         vid.play().catch(() => {});
       }, POP_IN_DELAY_MS);
     });
+
+    /* =========================
+       ADDED: Release popup logic
+       ========================= */
+    (function(){
+      const KEY = "jkp_promo_march6_2026_dismissed";
+      const promo = document.getElementById("promo");
+      const closeBtn = document.getElementById("promoClose");
+      const laterBtn = document.getElementById("promoLater");
+
+      if (!promo || !closeBtn || !laterBtn) return;
+
+      const openPromo = () => {
+        promo.classList.add("is-on");
+        promo.setAttribute("aria-hidden","false");
+        closeBtn.focus({ preventScroll: true });
+        document.body.style.overflow = "hidden";
+      };
+
+      const closePromo = () => {
+        promo.classList.remove("is-on");
+        promo.setAttribute("aria-hidden","true");
+        document.body.style.overflow = "";
+        try { localStorage.setItem(KEY, "1"); } catch(e) {}
+      };
+
+      // Close on overlay click (but not on card click)
+      promo.addEventListener("click", (e) => {
+        if (e.target === promo) closePromo();
+      });
+
+      closeBtn.addEventListener("click", closePromo);
+      laterBtn.addEventListener("click", closePromo);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && promo.classList.contains("is-on")) closePromo();
+      });
+
+      // Show once (per browser) after load
+      window.addEventListener("load", () => {
+        let dismissed = false;
+        try { dismissed = localStorage.getItem(KEY) === "1"; } catch(e) {}
+        if (dismissed) return;
+
+        // Slight delay so it feels intentional, not spammy.
+        setTimeout(openPromo, 900);
+      });
+    })();
   </script>
 </body>
 </html>
