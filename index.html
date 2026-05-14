@@ -21,7 +21,7 @@
 
   <meta name="theme-color" content="#070712" />
 
-  <!-- Favicon + icons (same as logo, per your request) -->
+  <!-- Favicon + icons -->
   <link rel="icon" type="image/jpeg" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
   <link rel="apple-touch-icon" href="https://bafybeibzr6di5hupp7brliozqnzpls6r7celmmhzwdekp4ckrkkqlo3o4a.ipfs.dweb.link?filename=IMG_2050.JPG" />
 
@@ -66,7 +66,7 @@
       border-radius: 14px;
     }
 
-    /* Background video layer (delayed pop-in) */
+    /* Background video layer */
     .video-bg{
       position: fixed;
       inset: 0;
@@ -188,6 +188,9 @@
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
       user-select:none;
       white-space: nowrap;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
     }
     .chip:hover{
       transform: translateY(-1px);
@@ -485,7 +488,8 @@
     }
 
     /* =========================
-       ADDED: Release popup modal
+       Release popup modal: You Didn't
+       Shows up to 3 times per browser
        ========================= */
     .promo{
       position: fixed;
@@ -582,7 +586,7 @@
       font-weight: 950;
       letter-spacing: -0.7px;
       line-height: 1.05;
-      font-size: clamp(26px, 3vw, 36px);
+      font-size: clamp(30px, 4vw, 46px);
     }
     .promoDate{
       margin-top: 10px;
@@ -624,6 +628,8 @@
       color: rgba(255,255,255,.92);
       cursor: pointer;
       transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+      font-size: 18px;
+      line-height: 1;
     }
     .promoClose:hover{
       transform: translateY(-1px);
@@ -648,7 +654,7 @@
 
   <div class="aurora" aria-hidden="true"></div>
 
-  <!-- ADDED: Release popup -->
+  <!-- Release popup: You Didn't -->
   <div class="promo" id="promo" role="dialog" aria-modal="true" aria-labelledby="promoTitle" aria-hidden="true">
     <div class="promoCard">
       <button class="promoClose" id="promoClose" type="button" aria-label="Close">
@@ -659,8 +665,8 @@
         <div class="promoMedia" aria-hidden="false">
           <div class="promoMediaFrame">
             <img
-              src="https://bafybeiadofj7nov5h427pnvgilj5kdtq5wvpu65dnr4ba3pluxrmwqfnie.ipfs.dweb.link?filename=Can%20You%20Feel%20This%3F%20Main%20Pic.jpeg"
-              alt="Can You Feel This cover art"
+              src="https://bafybeicx2a5ut2zspnudci4zxdvnhnrvbjlh7ap55n2gax7so3unhgmsli.ipfs.dweb.link?filename=YD.gif"
+              alt="You Didn't animated album cover"
               loading="eager"
               decoding="async"
             />
@@ -668,21 +674,21 @@
         </div>
 
         <div class="promoBody">
-          <div class="promoKicker">Featured Release</div>
-          <h2 class="promoTitle" id="promoTitle"><span class="sig">Can You Feel This</span></h2>
-          <div class="promoDate">Out Now • Drops Everywhere</div>
+          <div class="promoKicker">New Single</div>
+          <h2 class="promoTitle" id="promoTitle"><span class="sig">You Didn't</span></h2>
+          <div class="promoDate">Listen now on SoundCloud • Everywhere May 29</div>
 
           <p class="promoLead">
-            Watch the promo, feel the pulse, and jump straight into the full release page for <strong>Can You Feel This?</strong> — your hub for the track, the video, and the follow links to Spotify, Apple Music, and SoundCloud.
+            The early listen is live. <strong>You Didn't</strong> is on SoundCloud now and hits every major platform May 29. Step into the release page for the track, the cover art, and the follow links before the algorithm buries another honest wound under dance tutorials and sponsored teeth whitener.
           </p>
 
           <div class="promoActions">
-            <a class="chip cta" href="https://feelthis.jamkillerproductions.io" target="_blank" rel="noopener">
+            <a class="chip cta" href="https://youdidnt.jamkillerproductions.io" target="_blank" rel="noopener">
               <span>Enter the release page</span>
             </a>
 
-            <a class="chip" href="https://feelthis.jamkillerproductions.io" target="_blank" rel="noopener">
-              <span>Watch the promo</span>
+            <a class="chip" href="https://on.soundcloud.com/3iTp08smXKHOdHH1vD" target="_blank" rel="noopener">
+              <span>Listen on SoundCloud</span>
             </a>
 
             <button class="chip" id="promoLater" type="button">
@@ -693,7 +699,7 @@
       </div>
     </div>
   </div>
-  <!-- /ADDED -->
+  <!-- /Release popup -->
 
   <header class="topbar">
     <div class="wrap">
@@ -785,6 +791,17 @@
         <div class="shine" aria-hidden="true"></div>
 
         <div class="list">
+          <a class="bigLink" href="https://youdidnt.jamkillerproductions.io" target="_blank" rel="noopener">
+            <div class="left">
+              <img class="icon" alt="You Didn't cover icon" src="https://bafybeicx2a5ut2zspnudci4zxdvnhnrvbjlh7ap55n2gax7so3unhgmsli.ipfs.dweb.link?filename=YD.gif" />
+              <div>
+                <div class="name">You Didn't</div>
+                <div class="hint">New single release page</div>
+              </div>
+            </div>
+            <div class="arrow">↗</div>
+          </a>
+
           <a class="bigLink" href="https://music.apple.com/us/artist/fletcher-christian/1237400126" target="_blank" rel="noopener">
             <div class="left">
               <img class="icon" alt="Apple Music logo" src="https://cdn.simpleicons.org/applemusic/ffffff" />
@@ -912,7 +929,6 @@
       </div>
     </section>
 
-    <!-- ADDED: Jam Killer Project (Mutiny Report) -->
     <section id="projects">
       <div class="sectionTitle">Jam Killer Projects</div>
       <div class="card reveal d2">
@@ -934,7 +950,6 @@
             <div class="arrow">↗</div>
           </a>
 
-          <!-- ADDED: JETTAI -->
           <a class="bigLink" href="https://jettai.pro" target="_blank" rel="noopener">
             <div class="left">
               <img
@@ -949,7 +964,6 @@
             </div>
             <div class="arrow">↗</div>
           </a>
-          <!-- /ADDED -->
 
           <a class="bigLink" href="https://fletcherchristiankc.rip" target="_blank" rel="noopener">
             <div class="left">
@@ -968,7 +982,6 @@
         </div>
       </div>
     </section>
-    <!-- /ADDED -->
 
     <footer>
       <div class="footerRow">
@@ -989,27 +1002,55 @@
     const bg = document.getElementById("videoBg");
     const vid = document.getElementById("dragonVideo");
 
-    vid.muted = true;
+    if (vid) {
+      vid.muted = true;
+    }
 
     window.addEventListener("load", () => {
       setTimeout(() => {
-        bg.classList.add("is-on");
-        vid.play().catch(() => {});
+        if (bg) bg.classList.add("is-on");
+        if (vid) vid.play().catch(() => {});
       }, POP_IN_DELAY_MS);
     });
 
     /* =========================
-       ADDED: Release popup logic
+       Release popup logic: You Didn't
+       Shows up to 3 times per browser
        ========================= */
     (function(){
-      const KEY = "jkp_promo_feelthis_2026_dismissed";
+      const VIEW_KEY = "jkp_promo_youdidnt_2026_views";
+      const MAX_VIEWS = 3;
+      const PROMO_DELAY_MS = 900;
+
       const promo = document.getElementById("promo");
       const closeBtn = document.getElementById("promoClose");
       const laterBtn = document.getElementById("promoLater");
 
       if (!promo || !closeBtn || !laterBtn) return;
 
+      const getViews = () => {
+        try {
+          const stored = localStorage.getItem(VIEW_KEY);
+          const parsed = Number.parseInt(stored || "0", 10);
+          return Number.isFinite(parsed) ? parsed : 0;
+        } catch(e) {
+          return 0;
+        }
+      };
+
+      const setViews = (count) => {
+        try {
+          localStorage.setItem(VIEW_KEY, String(count));
+        } catch(e) {}
+      };
+
       const openPromo = () => {
+        const currentViews = getViews();
+
+        if (currentViews >= MAX_VIEWS) return;
+
+        setViews(currentViews + 1);
+
         promo.classList.add("is-on");
         promo.setAttribute("aria-hidden","false");
         closeBtn.focus({ preventScroll: true });
@@ -1020,10 +1061,8 @@
         promo.classList.remove("is-on");
         promo.setAttribute("aria-hidden","true");
         document.body.style.overflow = "";
-        try { localStorage.setItem(KEY, "1"); } catch(e) {}
       };
 
-      // Close on overlay click (but not on card click)
       promo.addEventListener("click", (e) => {
         if (e.target === promo) closePromo();
       });
@@ -1035,14 +1074,8 @@
         if (e.key === "Escape" && promo.classList.contains("is-on")) closePromo();
       });
 
-      // Show once (per browser) after load
       window.addEventListener("load", () => {
-        let dismissed = false;
-        try { dismissed = localStorage.getItem(KEY) === "1"; } catch(e) {}
-        if (dismissed) return;
-
-        // Slight delay so it feels intentional, not spammy.
-        setTimeout(openPromo, 900);
+        setTimeout(openPromo, PROMO_DELAY_MS);
       });
     })();
   </script>
